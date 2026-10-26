@@ -1,0 +1,28 @@
+scene:
+  type: 'InTheWild'
+  attributes:
+    img_path: '../imgs/demo_1.jpg'
+    # K is overridden per scene by batch_run_gen3dsr.sh from 3D-FUTURE fov metadata.
+    K: [[1040.75, 0.0, 600.0], [0.0, 1040.75, 600.0], [0.0, 0.0, 1.0]]
+  save_dir: '../out/demo_1'
+run:
+  only_foreground: False
+  single_object: False
+  reproject: True
+  depth_edge_threshold: 0.0001
+  amodal_completion: 'our'
+  obj_rec: 'dg'
+  depth:
+    metric: 'metric3d'
+    relative: null
+  segmentation:
+    holistic: 'entityv2'
+    fg_bg: 'oneformer'
+    merge_masks:
+      dilation: 7
+      threshold: 0.5
+    tagger: 'ovsam'
+  calibration:
+    intrinsics: 'gt'
+    pose: null
+  clip_bg: False

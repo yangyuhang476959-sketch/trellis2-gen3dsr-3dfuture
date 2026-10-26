@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.so
+build/
+external/checkpoints/*
+!external/checkpoints/download.sh
+out/
+*.glb
